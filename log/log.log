@@ -1,12 +1,14 @@
-2026-02-11 18:01:41 [INFO] root: From FeSo4a
-2026-02-11 18:01:41 [INFO] root: -----------------------------------
-2026-02-11 18:01:41 [INFO] root: Log path: ../log/log.log
-2026-02-11 18:01:41 [INFO] root: Log mode: w
-2026-02-11 18:01:41 [INFO] root: Log format: %(asctime)s [%(levelname)s] %(name)s: %(message)s
-2026-02-11 18:01:41 [INFO] root: Log datefmt: %Y-%m-%d %H:%M:%S
-2026-02-11 18:01:41 [INFO] root: -----------------------------------
-2026-02-11 18:01:41 [INFO] root: Log initialized successfully.
-2026-02-11 18:01:41 [INFO] root: Assets loaded successfully.
-2026-02-11 18:01:41 [INFO] root: Assets loaded successfully.
-2026-02-11 18:01:41 [INFO] root: Asset file loaded successfully.
-2026-02-11 18:01:41 [INFO] root: Asset file loaded successfully.
+2026-03-16 18:10:30 [INFO] root: From FeSo4a
+2026-03-16 18:10:30 [INFO] root: -----------------------------------
+2026-03-16 18:10:30 [INFO] root: Log path: ../log/log.log
+2026-03-16 18:10:30 [INFO] root: Log mode: w
+2026-03-16 18:10:30 [INFO] root: Log format: %(asctime)s [%(levelname)s] %(name)s: %(message)s
+2026-03-16 18:10:30 [INFO] root: Log datefmt: %Y-%m-%d %H:%M:%S
+2026-03-16 18:10:30 [INFO] root: -----------------------------------
+2026-03-16 18:10:30 [INFO] root: Log initialized successfully.
+2026-03-16 18:10:30 [INFO] root: Assets loaded successfully.
+2026-03-16 18:10:30 [INFO] root: Assets loaded successfully.
+2026-03-16 18:10:30 [INFO] root: Asset file loaded successfully.
+2026-03-16 18:10:30 [INFO] root: Asset file loaded successfully.
+2026-03-16 18:10:47 [ERROR] root: Mod load error: [Errno 2] No such file or directory: '../mod/None/level.json'
+2026-03-16 18:10:48 [ERROR] root: Failed to load mod level data.

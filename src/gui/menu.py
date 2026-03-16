@@ -106,15 +106,15 @@ def menu_loop(menu: list) -> int:
         move = load_menu(menu, choose)
 
         # 处理用户输入：向上移动选择
-        if move == 'w':
+        if move in ['w', 'up']:
             choose -= 1
             choose = trigger(choose)
 
         # 处理用户输入：向下移动选择
-        elif move == 's':
+        elif move in ['s', 'down']:
             choose += 1
             choose = trigger(choose)
 
         # 处理用户输入：确认选择
-        elif move == 'space':
+        elif move in ['space', 'enter']:
             return choose

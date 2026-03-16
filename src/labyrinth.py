@@ -11,6 +11,8 @@ from load_asset import *
 from load_config import *
 from load_log import *
 from load_mod import *
+from show_keyboard import *
+
 
 # 初始化 colorama 库，用于在终端中显示彩色文本
 init(autoreset=True)
@@ -66,6 +68,7 @@ START_GAME: Final[int] = 0
 MOD: Final[int] = 1
 ABOUT: Final[int] = 2
 QUIT: Final[int] = 3
+KEYBOARD: Final[int] = 4
 
 
 def main() -> None:
@@ -106,6 +109,8 @@ def main() -> None:
             # 清空屏幕并退出程序
             clear()
             sys.exit(0)
+        elif choose == KEYBOARD:
+            print_keyboard()
 
 
 if __name__ == '__main__':

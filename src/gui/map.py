@@ -107,6 +107,7 @@ def print_map(map_: list, color_dict: dict, all_color: dict) -> None:
         # 将处理好的行字符串添加到lines列表中
         lines.append(line)
 
+    # print('# - 墙壁\nX/@ - 回到起点\n> - 向右传送\n< - 向左传送\n^ - 向上传送\nv - 向下传送\nE - 终点')
     # 将所有行用换行符连接，并打印到标准输出
     print('\n'.join(lines))
 
@@ -153,13 +154,13 @@ def map_loop(map_data: dict, color_dict: dict, all_color: dict) -> str:
         clear_button()
 
         # 根据按键计算新的坐标
-        if move == 'w':
+        if move in ['w', 'up']:
             new_y, new_x = player_y - 1, player_x
-        elif move == 's':
+        elif move in ['s', 'down']:
             new_y, new_x = player_y + 1, player_x
-        elif move == 'a':
+        elif move in ['a', 'left']:
             new_y, new_x = player_y, player_x - 1
-        elif move == 'd':
+        elif move in ['d', 'right']:
             new_y, new_x = player_y, player_x + 1
         elif move == 'r':
             flag = False
