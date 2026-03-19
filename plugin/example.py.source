@@ -1,0 +1,16 @@
+def OverWrite(func):
+    def wrapper(*args, **kwargs):
+        func.__doc__ = '@overWrite\n' + func.__doc__
+        res = func(*args, **kwargs)
+        return res
+    return wrapper
+def LoadStart(func):
+    def wrapper(*args, **kwargs):
+        func.__doc__ = '@loadStart\n' + func.__doc__
+        res = func(*args, **kwargs)
+        return res
+    return wrapper
+
+@LoadStart
+def main():
+    print('example plugin loaded')

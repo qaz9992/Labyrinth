@@ -1,0 +1,6 @@
+{
+    "path": "../plugin",
+    "files": [
+        "example.pyd"
+    ]
+}
