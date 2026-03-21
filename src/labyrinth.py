@@ -12,6 +12,10 @@ from load_config import *
 from load_log import *
 from load_mod import *
 from show_keyboard import *
+import json
+import importlib.util
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent))
 
 
 # 初始化 colorama 库，用于在终端中显示彩色文本
@@ -22,6 +26,7 @@ LOG_CONFIG_PATH: Final[str] = '../config/log_config.json'
 ASSET_CONFIG_PATH: Final[str] = '../config/asset_config.json'
 COLOR_CONFIG_PATH: Final[str] = '../config/color.json'
 MOD_CONFIG_PATH: Final[str] = '../config/mod_config.json'
+PLUGIN_CONFIG_PATH: Final[str] = '../config/plugin.json'
 
 # 加载日志配置并初始化日志系统
 log_config = load_config_log(LOG_CONFIG_PATH)
@@ -70,6 +75,43 @@ ABOUT: Final[int] = 2
 QUIT: Final[int] = 3
 KEYBOARD: Final[int] = 4
 
+def load_plugins():
+    plugins = []
+    try:
+        with open(PLUGIN_CONFIG_PATH, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            plugin_path = data.get('path', '../plugin')
+            plugin_files = data.get('files', [])
+            if plugin_files == []:
+                pass
+            else:
+                plugins = []
+                for file in plugin_files:
+                    module_name = file[:-4]  # 去掉文件扩展名
+                    plugins.append(importlib.import_module("plugin." + module_name))
+                    # module_path = f'{plugin_path}/{file}'
+                    # spec = importlib.util.spec_from_file_location(module_name, module_path)
+                    # if spec and spec.loader:
+                    #     module = importlib.util.module_from_spec(spec)
+                    #     sys.modules[module_name] = module
+                    #     spec.loader.exec_module(module)
+                    #     plugins.append(module)
+                    for plugin in plugins:
+                        if hasattr(plugin, 'register'):
+                            plugin.register()
+                        for func in plugin.__all__:
+                            if hasattr(plugin, func):
+                                # function = globals().get(func)
+                                function = getattr(plugin, func)
+                                if "@loadStart" in function.__doc__:
+                                    function()
+    # except Exception as e:
+    #     print(f'加载插件时发生错误: {e}')
+    #     time.sleep(5)
+    finally:
+        pass
+    
+
 
 def main() -> None:
     # 清屏并显示标题动画
@@ -87,7 +129,7 @@ def main() -> None:
     time.sleep(1)
 
     clear()
-
+    load_plugins()
     # 进入主菜单循环
     while True:
         # 读取主菜单配置文件

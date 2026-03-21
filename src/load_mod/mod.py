@@ -115,6 +115,8 @@ def mod_menu(pack_list: list, all_color: dict) -> Tuple[int, list, list]:
         mod_id.append(file)
     menu.append(f'{Fore.RED}退出')
     quit_: int = len(menu)
+    # print(menu)
+    # __import__('time').sleep(1)
     return quit_, menu, mod_id
 
 
