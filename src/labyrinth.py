@@ -4,6 +4,8 @@ from typing import *
 
 from colorama import *
 
+import aprilfool as af
+af.main()
 from clear_screen import *
 from game import *
 from gui import *
